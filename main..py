@@ -10,6 +10,7 @@ WHITE=(255,255,255)
 
 board=["","","","","","","","",""]
 
+current_player="X"
 running=True
 while running:
     screen.fill(WHITE)
@@ -31,13 +32,19 @@ while running:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             running=False
-    
+        
         if event.type==pygame.MOUSEBUTTONDOWN:
             mouse_pos=event.pos
             x,y=mouse_pos
-
+            
             if 225<=x<=375  and 125<=y<=275:
-                    board[0]="X"
+                    if current_player=="X":
+                         board[0]="X"
+
+                    else:
+                         board[0]="O"
+
+                    
 
                     
 
