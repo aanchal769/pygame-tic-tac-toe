@@ -16,6 +16,19 @@ while running:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             running=False
+    
+    
+    pygame.draw.line(screen,(0,0,0),(225,125),(675,125),5)
+    pygame.draw.line(screen,(0,0,0),(225,275),(675,275),5)
+    pygame.draw.line(screen,(0,0,0),(225,425),(675,425),5)
+    pygame.draw.line(screen,(0,0,0),(225,575),(675,575),5)
+    
+    pygame.draw.line(screen,(0,0,0),(225,125),(225,575),5)
+    
+    pygame.draw.line(screen,(0,0,0),(375,125),(375,575),5)
+    pygame.draw.line(screen,(0,0,0),(525,125),(525,575),5)
+    
+    pygame.draw.line(screen,(0,0,0),(675,125),(675,575),5)
 
     pygame.display.update()
 
