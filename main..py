@@ -32,7 +32,7 @@ while running:
     pygame.draw.line(screen,(0,0,0) ,(385,290),(510,410),5)
     pygame.draw.line(screen,(0,0,0) ,(385,410),(510,290),5)
 
-    
+    pygame.draw.circle(screen,(255,0,0),(300,200),65,5)
     pygame.display.update()
 
 pygame.quit()
