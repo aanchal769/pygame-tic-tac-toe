@@ -23,13 +23,16 @@ while running:
     pygame.draw.line(screen,(0,0,0),(225,425),(675,425),5)
     pygame.draw.line(screen,(0,0,0),(225,575),(675,575),5)
     
-    pygame.draw.line(screen,(0,0,0),(225,125),(225,575),5)
-    
+    pygame.draw.line(screen,(0,0,0),(225,125),(225,575),5)   
     pygame.draw.line(screen,(0,0,0),(375,125),(375,575),5)
     pygame.draw.line(screen,(0,0,0),(525,125),(525,575),5)
-    
     pygame.draw.line(screen,(0,0,0),(675,125),(675,575),5)
 
+
+    pygame.draw.line(screen,(0,0,0) ,(385,290),(510,410),5)
+    pygame.draw.line(screen,(0,0,0) ,(385,410),(510,290),5)
+
+    
     pygame.display.update()
 
 pygame.quit()
