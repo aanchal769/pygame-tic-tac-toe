@@ -17,7 +17,10 @@ while running:
         if event.type==pygame.QUIT:
             running=False
     
-    
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            mouse_pos=event.pos
+            print(mouse_pos)
+
     pygame.draw.line(screen,(0,0,0),(225,125),(675,125),5)
     pygame.draw.line(screen,(0,0,0),(225,275),(675,275),5)
     pygame.draw.line(screen,(0,0,0),(225,425),(675,425),5)
