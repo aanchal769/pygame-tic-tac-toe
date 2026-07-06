@@ -2,9 +2,12 @@ import pygame
 
 pygame.init()
 
+
 screen=pygame.display.set_mode((900,700))
 
 pygame.display.set_caption("Tic Tac Toe")
+
+font =pygame.font.Font(None,60)
 
 WHITE=(255,255,255)
 
@@ -55,13 +58,14 @@ while running:
             
                mouse_pos=event.pos
                x,y=mouse_pos
+               if 225<=x<=675 and 125<y<=575:
 
-               row=(y-125)//150
-               col=(x-225)//150
+                  row=(y-125)//150
+                  col=(x-225)//150
 
-               index=row*3+col
+                  index=row*3+col
 
-               if board[index]=="":
+                  if board[index]=="":
                     board[index]=current_player
 
                     if(current_player=="X"):
@@ -107,7 +111,11 @@ while running:
                         winner=board[2]
                         game_over=True
 
-                    
+    if game_over:
+        text=font.render(winner+" "+   "WINS!",True,(255,0,0))
+
+        screen.blit(text,(300,50))
+                        
                 
 
     pygame.display.update()
