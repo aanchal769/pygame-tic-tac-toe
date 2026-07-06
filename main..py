@@ -11,6 +11,7 @@ WHITE=(255,255,255)
 board=["","","","","","","","",""]
 
 current_player="X"
+game_over=False
 running=True
 while running:
     screen.fill(WHITE)
@@ -50,43 +51,65 @@ while running:
             running=False
         
         if event.type==pygame.MOUSEBUTTONDOWN:
-            mouse_pos=event.pos
-            x,y=mouse_pos
-
-            row=(y-125)//150
-            col=(x-225)//150
-
-            index=row*3+col
-
-            if board[index]=="":
-                board[index]=current_player
-
-                if(current_player=="X"):
-                    current_player="O"
-
-                else:
-                    current_player="X"
-
-
+            if game_over==False:
             
+               mouse_pos=event.pos
+               x,y=mouse_pos
+
+               row=(y-125)//150
+               col=(x-225)//150
+
+               index=row*3+col
+
+               if board[index]=="":
+                    board[index]=current_player
+
+                    if(current_player=="X"):
+                        current_player="O"
+
+                    else:
+                        current_player="X"
+
+               
+               if( board[0]!=""   and board[0]==board[1] ==board[2]):
+                        winner=board[0]
+                        game_over=True
+
+               if(board[0]!=""  and board[0]==board[3] ==board[6]):
+                        winner=board[0]
+                        game_over=True
 
 
-            
-            
-            
-          
-                
+               if(board[3]!=""  and board[3]==board[4] ==board[5]):
+                        winner=board[3]
+                        game_over=True
+
+               if(board[6]!="" and board[6]==board[7] ==board[8]):
+                        winner=board[6]
+                        game_over=True
+
+
+               if(board[1]!="" and board[1]==board[4] ==board[7]):
+                        winner=board[1]
+                        game_over=True
+
+
+               if(board[2]!="" and  board[2]==board[5] ==board[8]):
+                        winner=board[2]
+                        game_over=True
+
+               if(board[0]!="" and  board[0]==board[4] ==board[8]):
+                        winner=board[0]
+                        game_over=True
+
+
+               if(board[2]!="" and   board[2]==board[4] ==board[6]):
+                        winner=board[2]
+                        game_over=True
 
                     
+                
 
-   
-    
-    
-
-
-    
-
-    
     pygame.display.update()
 
 pygame.quit()
