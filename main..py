@@ -52,101 +52,27 @@ while running:
         if event.type==pygame.MOUSEBUTTONDOWN:
             mouse_pos=event.pos
             x,y=mouse_pos
-            
-            if 225<=x<=375  and 125<=y<=275:
-                    if current_player=="X":
-                         board[0]="X"
-                         current_player="O"
-                    else:
-                         board[0]="O"
-                         current_player="X"
-            
 
-            if 375<=x<=525  and 125<=y<=275:
-                 if current_player=="X":
-                      board[1]="X"
-                      current_player="O"
+            row=(y-125)//150
+            col=(x-225)//150
 
-                 else:
-                      board[1]="O"
-                      current_player="X"
+            index=row*3+col
 
-            if 525<=x<=675 and 125<=y<=275:
-                 if current_player=="X":
-                      board[2]="X"
-                      current_player="O"
+            if board[index]=="":
+                board[index]=current_player
 
-                 else:
-                      board[2]="O"
-                      current_player="X"
+                if(current_player=="X"):
+                    current_player="O"
+
+                else:
+                    current_player="X"
 
 
             
-            if 225<=x<=375 and 275<=y<=425:
-                 if current_player=="X":
-                      board[3]="X"
-                      current_player="O"
-
-                 else:
-                      board[3]="O"
-                      current_player="X"
 
 
             
-            if 375<=x<=525 and 275<=y<=425:
-                 if current_player=="X":
-                      board[4]="X"
-                      current_player="O"
-
-                 else:
-                      board[4]="O"
-                      current_player="X"
-
-
-
             
-            if 525<=x<=675 and 275<=y<=425:
-                 if current_player=="X":
-                      board[5]="X"
-                      current_player="O"
-
-                 else:
-                      board[5]="O"
-                      current_player="X"
-
-
-            
-            if 225<=x<=375 and 425<=y<=575:
-                 if current_player=="X":
-                      board[6]="X"
-                      current_player="O"
-
-                 else:
-                      board[6]="O"
-                      current_player="X"
-
-            
-            if 375<=x<=525 and 425<=y<=575:
-                 if current_player=="X":
-                      board[7]="X"
-                      current_player="O"
-
-                 else:
-                      board[7]="O"
-                      current_player="X"
-
-
-            
-            if 525<=x<=675 and 425<=y<=575:
-                 if current_player=="X":
-                      board[8]="X"
-                      current_player="O"
-
-                 else:
-                      board[8]="O"
-                      current_player="X"
-
-
             
           
                 
