@@ -1,26 +1,27 @@
 import pygame
 
 pygame.init()
-
+pygame.mixer.init()
 
 screen=pygame.display.set_mode((900,800))
 
 pygame.display.set_caption("Tic Tac Toe")
 
 restart_button=pygame.Rect(330,620,240,100)
-
+win_sound=pygame.mixer.Sound("win.wav")
 font =pygame.font.Font(None,60)
 
-WHITE=(255,255,255)
 
+LIGHT_PINK = (255, 182, 193)
 board=["","","","","","","","",""]
 winner=""
 current_player="X"
 game_over=False
 draw=False
 running=True
+sound_played=False
 while running:
-    screen.fill(WHITE)
+    screen.fill(LIGHT_PINK)
 
     if game_over:
           pygame.draw.rect(screen,(0,150,0) ,restart_button)
@@ -96,38 +97,46 @@ while running:
                if( board[0]!=""   and board[0]==board[1] ==board[2]):
                         winner=board[0]
                         game_over=True
+                        win_sound.play()
 
                if(board[0]!=""  and board[0]==board[3] ==board[6]):
                         winner=board[0]
                         game_over=True
+                        win_sound.play()
+
 
 
                if(board[3]!=""  and board[3]==board[4] ==board[5]):
                         winner=board[3]
                         game_over=True
+                        win_sound.play()
+
 
                if(board[6]!="" and board[6]==board[7] ==board[8]):
                         winner=board[6]
                         game_over=True
-
+                        win_sound.play()
 
                if(board[1]!="" and board[1]==board[4] ==board[7]):
                         winner=board[1]
                         game_over=True
-
+                        win_sound.play()
 
                if(board[2]!="" and  board[2]==board[5] ==board[8]):
                         winner=board[2]
                         game_over=True
+                        win_sound.play()
+
 
                if(board[0]!="" and  board[0]==board[4] ==board[8]):
                         winner=board[0]
                         game_over=True
-
+                        win_sound.play()
 
                if(board[2]!="" and   board[2]==board[4] ==board[6]):
                         winner=board[2]
                         game_over=True
+                        win_sound.play()
 
    
     if winner=="" and "" not in board:
@@ -140,9 +149,10 @@ while running:
                 screen.blit(text,(300,50))
                  
                 
-        
+   
 
     if winner!="" and  game_over:
+
         text=font.render(winner+" "+   "WINS!",True,(255,0,0))
 
         screen.blit(text,(300,50))
