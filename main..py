@@ -3,9 +3,11 @@ import pygame
 pygame.init()
 
 
-screen=pygame.display.set_mode((900,700))
+screen=pygame.display.set_mode((900,800))
 
 pygame.display.set_caption("Tic Tac Toe")
+
+restart_button=pygame.Rect(330,620,240,100)
 
 font =pygame.font.Font(None,60)
 
@@ -19,6 +21,12 @@ draw=False
 running=True
 while running:
     screen.fill(WHITE)
+
+    if game_over:
+          pygame.draw.rect(screen,(0,150,0) ,restart_button)
+          button_text=font.render("Restart",True,(255,255,255))
+          button_rect=button_text.get_rect(center=restart_button.center)
+          screen.blit(button_text,button_rect)
 
     pygame.draw.line(screen,(0,0,0),(225,125),(675,125),5)
     pygame.draw.line(screen,(0,0,0),(225,275),(675,275),5)
@@ -55,11 +63,20 @@ while running:
             running=False
         
         if event.type==pygame.MOUSEBUTTONDOWN:
-            if game_over==False:
+            
+            if  game_over and restart_button.collidepoint(event.pos):
+               board=["","","","","","","","",""]
+               winner=""
+               draw=False
+               game_over=False
+               current_player="X"
+               
+            elif game_over==False:
+               
             
                mouse_pos=event.pos
                x,y=mouse_pos
-               if 225<=x<=675 and 125<y<=575:
+               if 225<=x<=675 and 125<=y<=575:
 
                   row=(y-125)//150
                   col=(x-225)//150
@@ -113,12 +130,12 @@ while running:
                         game_over=True
 
    
-    if winner=="" :
-          if "" not in board:
+    if winner=="" and "" not in board:
                 draw=True
                 game_over=True
 
-                text=font.render("sorry next time!",True,(255,0,0))
+    if draw:
+                text=font.render("Its's a Draw!",True,(255,0,0))
 
                 screen.blit(text,(300,50))
                  
