@@ -12,9 +12,10 @@ font =pygame.font.Font(None,60)
 WHITE=(255,255,255)
 
 board=["","","","","","","","",""]
-
+winner=""
 current_player="X"
 game_over=False
+draw=False
 running=True
 while running:
     screen.fill(WHITE)
@@ -73,7 +74,7 @@ while running:
 
                     else:
                         current_player="X"
-
+                
                
                if( board[0]!=""   and board[0]==board[1] ==board[2]):
                         winner=board[0]
@@ -111,11 +112,26 @@ while running:
                         winner=board[2]
                         game_over=True
 
-    if game_over:
+   
+    if winner=="" :
+          if "" not in board:
+                draw=True
+                game_over=True
+
+                text=font.render("sorry next time!",True,(255,0,0))
+
+                screen.blit(text,(300,50))
+                 
+                
+        
+
+    if winner!="" and  game_over:
         text=font.render(winner+" "+   "WINS!",True,(255,0,0))
 
         screen.blit(text,(300,50))
-                        
+
+    
+
                 
 
     pygame.display.update()
